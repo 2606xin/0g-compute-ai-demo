@@ -1,6 +1,8 @@
-# 0G Broker Starter Kit
+# 0g-compute-ai-demo
 
 这是一个使用 0G Serving Broker 的简单示例项目，专为初学者设计，展示如何构建去中心化 AI 应用。
+
+> **新增功能**: 本项目在基础 0G Broker Starter Kit 之上新增了多项功能特性，包括币安期货 API 集成、Markdown 渲染、Provider 余额管理等。详细功能说明请查看 [FEATURES.md](./FEATURES.md)。
 
 ## 功能概览
 
@@ -128,3 +130,14 @@ pnpm run dev
 - [0G Labs 文档](https://docs.0g.ai)
 - [0G Serving Broker NPM](https://www.npmjs.com/package/@0glabs/0g-serving-broker)
 - [WalletConnect](https://cloud.walletconnect.com)
+
+## 新增功能
+
+本项目在基础功能之上新增了以下特性：
+
+- **币安期货 API 集成** - AI 聊天功能现已集成币安期货 API，可以实时获取加密货币价格数据，并基于这些数据提供交易建议
+- **Markdown 消息渲染** - AI 回复支持完整的 Markdown 格式渲染，包括表格、代码块、列表等
+- **Provider 余额管理** - 支持查询各个 Provider 的推理子账户余额，并支持从主账本充值到 Provider
+- **优化的用户界面** - 更大的对话窗口和更好的视觉体验
+
+详细功能说明和使用方法请查看 [FEATURES.md](./FEATURES.md)。
