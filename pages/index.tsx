@@ -1,4 +1,3 @@
-
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount, useWalletClient } from "wagmi";
 import { useState, useEffect } from "react";
@@ -37,7 +36,6 @@ export default function Home() {
     initBroker();
   }, [isConnected, walletClient, broker]);
 
-  
   if (!isConnected) {
     return (
       <div style={{ padding: "20px", textAlign: "center" }}>
@@ -51,7 +49,14 @@ export default function Home() {
   }
 
   return (
-    <div style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
+    <div
+      style={{
+        padding: "20px",
+        maxWidth: activeTab === "chat" ? "1200px" : "800px",
+        margin: "0 auto",
+        minHeight: "calc(100vh - 40px)",
+      }}
+    >
       <div
         style={{
           display: "flex",
@@ -109,8 +114,11 @@ export default function Home() {
       <div
         style={{
           border: "1px solid #ddd",
-          padding: "20px",
-          minHeight: "400px",
+          borderRadius: "8px",
+          padding: activeTab === "chat" ? "25px" : "20px",
+          minHeight: activeTab === "chat" ? "calc(100vh - 250px)" : "400px",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
         {!broker ? (
@@ -124,8 +132,8 @@ export default function Home() {
                 setMessage={setMessage}
               />
             )}
-            
-                        {activeTab === "service" && (
+
+            {activeTab === "service" && (
               <ServiceTab
                 broker={broker}
                 selectedProvider={selectedProvider}
@@ -134,7 +142,7 @@ export default function Home() {
                 setMessage={setMessage}
               />
             )}
-            
+
             {activeTab === "chat" && (
               <ChatTab
                 broker={broker}
@@ -143,13 +151,15 @@ export default function Home() {
                 setMessage={setMessage}
               />
             )}
-            
-            {activeTab !== "account" && activeTab !== "service" && activeTab !== "chat" && (
-              <div>
-                <p>当前标签: {activeTab}</p>
-                <p>其他功能待添加...</p>
-              </div>
-            )}
+
+            {activeTab !== "account" &&
+              activeTab !== "service" &&
+              activeTab !== "chat" && (
+                <div>
+                  <p>当前标签: {activeTab}</p>
+                  <p>其他功能待添加...</p>
+                </div>
+              )}
           </>
         )}
 
